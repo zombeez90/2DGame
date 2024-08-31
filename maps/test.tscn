@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://6nr5yvgav1w4"]
+
+[ext_resource type="Texture2D" uid="uid://bffbr6h73blwt" path="res://icon.svg" id="1_3asrf"]
+[ext_resource type="Texture2D" uid="uid://dgnyyww61i3gq" path="res://assets/rpg-pack/chars/hat-guy/hat-guy.png" id="2_wm387"]
+
+[node name="Icon" type="Sprite2D"]
+position = Vector2(120, 99)
+texture = ExtResource("1_3asrf")
+
+[node name="Hat-guy" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(276, 4)
+texture = ExtResource("2_wm387")
