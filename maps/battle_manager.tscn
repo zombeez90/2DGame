@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://5uf4474fh7db"]
+
+[node name="BattleManager" type="Node2D"]
