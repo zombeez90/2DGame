@@ -1,3 +1,10 @@
-[gd_scene format=3 uid="uid://5uf4474fh7db"]
+[gd_scene load_steps=4 format=3 uid="uid://epksgbnlefeu"]
 
-[node name="BattleManager" type="Node2D"]
+[ext_resource type="Script" path="res://scripts/battle_manager.gd" id="1_qsppg"]
+[ext_resource type="PackedScene" uid="uid://beyo6hy0vp0xk" path="res://maps/player.tscn" id="2_0ty6s"]
+[ext_resource type="PackedScene" uid="uid://bi6d0x7juyp36" path="res://maps/thing.tscn" id="3_mkp10"]
+
+[node name="battle_manager" type="Node2D"]
+script = ExtResource("1_qsppg")
+player_scene = ExtResource("2_0ty6s")
+enemy_scene = ExtResource("3_mkp10")

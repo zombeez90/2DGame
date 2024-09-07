@@ -1701,4 +1701,4 @@ platform_wall_layers = 1
 
 [node name="mob" parent="." instance=ExtResource("5_ubjse")]
 texture_filter = 1
-position = Vector2(45, 76)
+position = Vector2(248, 105)

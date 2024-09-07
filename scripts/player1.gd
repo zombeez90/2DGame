@@ -3,6 +3,8 @@ extends CharacterBody2D
 @export var speed: int = 50
 @export var shift_mod: int = 25 
 @onready var sprite = $AnimatedSprite2D
+@onready var health_component = $Health  # Assuming Health.gd is attached to a child node called "Health"
+
 
 const INPUT_LEFT = "left"
 const INPUT_RIGHT = "right"
@@ -60,3 +62,12 @@ func update_animation():
 		sprite.play("walk_down")
 	else:
 		sprite.play("idle")
+# Handle the player taking damage via the health component
+func take_damage(damage: int):
+	health_component.take_damage(damage)
+
+# Player's attack action during battle
+func attack_enemy(enemy):
+	var damage = 10
+	enemy.take_damage(damage)
+	print("Player attacked the enemy for ", damage, " damage!")

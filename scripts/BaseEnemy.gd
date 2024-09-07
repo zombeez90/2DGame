@@ -16,4 +16,4 @@ func handle_battle_trigger(body: Node2D) -> void:
 	print("Enemy position saved: ", Global.last_enemy_position)
 	
 	# Transition to the battle scene
-	get_tree().change_scene_to_file("res://maps/battle.tscn")
+	get_tree().change_scene_to_file("res://maps/battle_manager.tscn")

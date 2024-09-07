@@ -300,13 +300,13 @@ height = 16.0
 
 [node name="Player" type="CharacterBody2D"]
 physics_interpolation_mode = 1
-position = Vector2(24, 17)
+position = Vector2(52, 52)
 scale = Vector2(0.997577, 0.994625)
 script = ExtResource("1_plkyp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(18, 26)
+position = Vector2(-0.0534248, -3.14591)
 scale = Vector2(0.916667, 1)
 sprite_frames = SubResource("SpriteFrames_xx8pf")
 animation = &"idle"
@@ -316,5 +316,5 @@ autoplay = "idle"
 light_mask = 3
 visibility_layer = 3
 texture_filter = 1
-position = Vector2(18, 30)
+position = Vector2(-0.0534248, 0.854092)
 shape = SubResource("CapsuleShape2D_1rkb3")
