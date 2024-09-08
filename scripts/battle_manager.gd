@@ -2,6 +2,9 @@ extends Node2D
 
 @export var player_scene: PackedScene
 @export var enemy_scene: PackedScene
+@export var cc: PackedScene
+var enemy_data: Dictionary
+
 const MARKER_SIZE = Vector2(25, 25)
 var player_spawn_points: Array = []
 var enemy_spawn_points: Array = []
@@ -44,6 +47,8 @@ func setup_battle() -> void:
 	spawn_players(3)
 	print("Players complete!")
 	print("Creating enemies...")
+	
+	
 	spawn_enemies(3)
 	print("Enemies complete!")	
 
@@ -106,10 +111,60 @@ func spawn_players(count: int) -> void:
 		print("Player spawned at position: ", player.position)
 
 func spawn_enemies(count: int) -> void:
-	var spawn_points = enemy_spawn_points.slice(0, count)  # Select only the number needed
+	# Create separate lists for front and back row spawn points
+	var front_row_points: Array = []
+	var back_row_points: Array = []
+	
+	# Sort enemy spawn points into front and back rows
+	for spawn_point in enemy_spawn_points:
+		if spawn_point[1] == "F":
+			front_row_points.append(spawn_point[0])
+		elif spawn_point[1] == "B":
+			back_row_points.append(spawn_point[0])
+
+	# Loop through the enemy types
 	for i in range(count):
+		
 		var enemy = enemy_scene.instantiate()
-		var spawn_point = spawn_points[i]
-		enemy.position = spawn_point[0]
+		
+		var enemy_data_list = load_enemy_list()
+		var pick = pick_random_enemy(enemy_data_list)
+		print(pick)
+		print(enemy_data_list[pick])
+		
+		var health = enemy_data_list[pick].health
+		var battle_points = enemy_data_list[pick].battle_points
+		
+		var c = cc.instantiate()
+		c.create_thing(pick,health,battle_points)
+		print(c)
+		
+		
+		
+		
+		# Choose a spawn point based on enemy type
+		if enemy.enemy_type == "ranged" and back_row_points.size() > 0:
+			enemy.position = back_row_points.pop_front()  # Prefer back row for ranged
+		elif enemy.enemy_type == "melee" and front_row_points.size() > 0:
+			enemy.position = front_row_points.pop_front()  # Prefer front row for melee
+		else:
+			# If there are no preferred spots left, fallback to any remaining spawn points
+			if front_row_points.size() > 0:
+				enemy.position = front_row_points.pop_front()
+			elif back_row_points.size() > 0:
+				enemy.position = back_row_points.pop_front()
+		
+		# Add the enemy to the scene
 		add_child(enemy)
-		print("Player spawned at position: ", enemy.position)
+		print(enemy.enemy_type.capitalize(), " enemy spawned at position: ", enemy.position)
+
+func load_enemy_list():
+	var enemy_data_script = load("res://scripts/enemy_data.gd").new() as Node
+	var enemy_data_list = enemy_data_script.ENEMY_DATA
+	return enemy_data_list
+	
+func pick_random_enemy(enemy_data_list: Dictionary):
+	var random_index = randi() % enemy_data_list.size()
+	var random_enemy_type = enemy_data_list.keys()[random_index]
+	# print(random_index)
+	return random_enemy_type
