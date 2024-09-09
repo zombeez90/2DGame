@@ -13,4 +13,5 @@ func create_thing(type: String, health: int, battle_points: int):
 	print("Creating enemy of type: ", type)
 	print("Health: ", health)
 	print("Battle Points: ", battle_points)
+	
 	# Add code to actually create the enemy here

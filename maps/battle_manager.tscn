@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/battle_manager.gd" id="1_qsppg"]
 [ext_resource type="PackedScene" uid="uid://beyo6hy0vp0xk" path="res://maps/player.tscn" id="2_0ty6s"]
 [ext_resource type="PackedScene" uid="uid://fqqlx7rmvgt5" path="res://maps/create_enemy.tscn" id="3_fn873"]
-[ext_resource type="PackedScene" uid="uid://bi6d0x7juyp36" path="res://maps/thing.tscn" id="3_mkp10"]
+[ext_resource type="PackedScene" uid="uid://bi6d0x7juyp36" path="res://scripts/thing.tscn" id="3_mkp10"]
 
 [node name="battle_manager" type="Node2D"]
 script = ExtResource("1_qsppg")

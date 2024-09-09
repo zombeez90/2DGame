@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bnyyut3puq2h6" path="res://assets/Foozle_2DT0014_Scallywag_WaterAndIslands/Water and Island tiles.png" id="2_io2vk"]
 [ext_resource type="Texture2D" uid="uid://coa5x4g1adk8w" path="res://assets/Foozle_2DT0010_Lucifer_Desert_Tileset_Pixel_Art/Desert Tileset.png" id="3_em2jl"]
 [ext_resource type="PackedScene" uid="uid://beyo6hy0vp0xk" path="res://maps/player.tscn" id="4_dymgv"]
-[ext_resource type="PackedScene" uid="uid://bi6d0x7juyp36" path="res://maps/thing.tscn" id="5_ubjse"]
+[ext_resource type="PackedScene" uid="uid://bi6d0x7juyp36" path="res://scripts/thing.tscn" id="5_ubjse"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8pvhd"]
 texture = ExtResource("2_io2vk")
